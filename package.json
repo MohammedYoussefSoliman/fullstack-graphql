@@ -1,0 +1,10 @@
+{
+  "name": "fullstack-graphQL",
+  "version": "1.0.0",
+  "description": "a fullstack graphQL application using MERN stack",
+  "main": "index.js",
+  "repository": "https://github.com/MohammedYoussefSoliman/fullstack-graphql.git",
+  "author": "msoliman",
+  "license": "MIT",
+  "private": true
+}
