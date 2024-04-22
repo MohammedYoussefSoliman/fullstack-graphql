@@ -7,9 +7,6 @@
   "author": "msoliman",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "apps/**"
-  ],
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
@@ -28,10 +25,10 @@
   },
   "scripts": {
     "prepare": "husky",
-    "dev:client": "cd ./apps/client/ && pnpm run dev",
-    "dev:server": "cd ./apps/server/ && pnpm run dev",
-    "build:client": "cd ./apps/client/ && pnpm run build",
-    "build:server": "cd ./apps/server/ && pnpm run build",
+    "dev:client": "pnpm --filter=client run dev",
+    "dev:server": "pnpm --filter=server run dev",
+    "build:client": "pnpm --filter=client run build",
+    "build:server": "pnpm --filter=server run build",
     "dev": "pnpm -r run dev",
     "build": "pnpm -r run build"
   }
