@@ -8,6 +8,7 @@
     "test": "npm run build && jasmine",
     "start": "ts-node-dev -r tsconfig-paths/register src/main.ts",
     "dev": "nodemon --config nodemon.json src/main.ts",
+    "dev:server": "nodemon --config nodemon.json src/main.ts",
     "format": "prettier --write src/**/*.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
