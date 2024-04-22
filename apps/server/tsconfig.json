@@ -17,9 +17,11 @@
       "@interfaces": ["interfaces"],
       "@middleware/*": ["middleware/*"],
       "@middleware": ["middleware"],
-      "@models": ["models"],
+      "@constants/*": ["constants/*"],
+      "@schema": ["schema"],
       "@controllers": ["controllers"],
-      "@configs": ["configs"]
+      "@configs": ["configs"],
+      "@resolvers": ["resolvers"]
     },
     "outDir": "dist",
     "rootDir": "src",
