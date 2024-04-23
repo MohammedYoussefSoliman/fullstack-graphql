@@ -1,0 +1,17 @@
+# Types
+type Client implements Timestamps {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String!
+  # Interface required
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+# Inputs
+input CreateClientInput {
+  name: String!
+  email: String!
+  phone: String!
+}

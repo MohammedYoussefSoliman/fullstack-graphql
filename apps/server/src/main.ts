@@ -10,8 +10,8 @@ import { ApolloServer } from 'apollo-server-express';
 import { configEnvs } from '@utils';
 import { errorHandlerMiddleware } from '@middleware';
 import { connectDB } from '@configs';
-import { typeDefs } from '@schema';
-import { clientResolvers } from '@resolvers';
+import { typeDefs } from '@graphql/typeDefs';
+import resolvers from '@graphql/resolvers';
 import http from 'http';
 
 configEnvs();
@@ -22,7 +22,7 @@ async function startApolloServer() {
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
     typeDefs,
-    resolvers: clientResolvers,
+    resolvers,
     //tell Express to attach GraphQL functionality to the server
     plugins: [
       ApolloServerPluginDrainHttpServer({ httpServer }), // Install a landing page plugin based on NODE_ENV

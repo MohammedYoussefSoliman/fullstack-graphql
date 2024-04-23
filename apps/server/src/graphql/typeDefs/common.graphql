@@ -1,0 +1,7 @@
+# This has to be declared because it is not a native type of graphql
+scalar Date
+
+interface Timestamps {
+  createdAt: Date!
+  updatedAt: Date!
+}

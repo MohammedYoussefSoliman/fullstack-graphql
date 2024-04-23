@@ -18,10 +18,8 @@
       "@middleware/*": ["middleware/*"],
       "@middleware": ["middleware"],
       "@constants/*": ["constants/*"],
-      "@schema": ["schema"],
-      "@controllers": ["controllers"],
       "@configs": ["configs"],
-      "@resolvers": ["resolvers"]
+      "@graphql/*": ["graphql/*"]
     },
     "outDir": "dist",
     "rootDir": "src",

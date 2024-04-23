@@ -1,0 +1,17 @@
+type Query {
+  #query clients
+  clients: [Client]!
+  client(id: ID!): Client
+  #query projects
+  projects: [Project]!
+  project(id: ID!): Project
+}
+
+type Mutation {
+  # mutate client
+  createClient(input: CreateClientInput!): Client!
+  updateClient(id: ID!, input: CreateClientInput!): Client!
+  # mutate project
+  createProject(input: CreateProjectInput!): Project!
+  updateProject(id: ID!, input: CreateProjectInput!): Project!
+}
