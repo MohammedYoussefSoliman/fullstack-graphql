@@ -1,17 +1,30 @@
+# Custom Scalars
+scalar Date
+
 type Query {
-  #query clients
-  clients: [Client]!
-  client(id: ID!): Client
-  #query projects
-  projects: [Project]!
-  project(id: ID!): Project
+  # Books
+  books: [Book]!
+  book(id: ID!): Book
+
+  # Author
+  authors: [Author]!
+  author(id: ID!): Author
+
+  # Publisher
+  publishers: [Publisher]!
+  publisher(id: ID!): Publisher
 }
 
 type Mutation {
-  # mutate client
-  createClient(input: CreateClientInput!): Client!
-  updateClient(id: ID!, input: CreateClientInput!): Client!
-  # mutate project
-  createProject(input: CreateProjectInput!): Project!
-  updateProject(id: ID!, input: CreateProjectInput!): Project!
+  # Books
+  createBook(book: BookCreateInput!): Book!
+  updateBook(id: ID!, book: BookUpdateInput!): Book!
+
+  # Authors
+  createAuthor(author: AuthorCreateInput!): Author!
+  updateAuthor(id: ID!, author: AuthorCreateInput!): Author!
+
+  # Publishers
+  createPublisher(publisher: PublisherCreateInput!): Publisher!
+  updatePublisher(id: ID!, publisher: PublisherUpdateInput!): Publisher!
 }

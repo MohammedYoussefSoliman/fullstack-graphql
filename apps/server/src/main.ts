@@ -15,7 +15,6 @@ import resolvers from '@graphql/resolvers';
 import http from 'http';
 
 configEnvs();
-connectDB();
 
 async function startApolloServer() {
   const app = express();
@@ -35,7 +34,10 @@ async function startApolloServer() {
     ],
   });
 
-  await server.start(); //start the GraphQL server.
+  //start database.
+  await connectDB();
+  //start the GraphQL server.
+  await server.start();
 
   app.use(express.json());
   app.use(

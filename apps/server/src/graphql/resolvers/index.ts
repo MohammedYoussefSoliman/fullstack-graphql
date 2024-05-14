@@ -1,14 +1,17 @@
-import { clientsMutations, clientsQueries } from './clients';
-import { projectsMutations, projectsQueries } from './projects';
+import { authorsMutations, authorsQueries } from './author';
+import { booksMutations, booksQueries } from './book';
+import { publishersMutations, publishersQueries } from './publisher';
 
 const resolvers = {
   Query: {
-    ...clientsQueries,
-    ...projectsQueries,
+    ...authorsQueries,
+    ...booksQueries,
+    ...publishersQueries,
   },
   Mutation: {
-    ...clientsMutations,
-    ...projectsMutations,
+    ...authorsMutations,
+    ...booksMutations,
+    ...publishersMutations,
   },
 };
 

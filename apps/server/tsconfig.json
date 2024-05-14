@@ -19,7 +19,8 @@
       "@middleware": ["middleware"],
       "@constants/*": ["constants/*"],
       "@configs": ["configs"],
-      "@graphql/*": ["graphql/*"]
+      "@graphql/*": ["graphql/*"],
+      "@models": ["database/models"]
     },
     "outDir": "dist",
     "rootDir": "src",
