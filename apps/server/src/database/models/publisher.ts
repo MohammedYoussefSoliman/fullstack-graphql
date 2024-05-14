@@ -1,6 +1,6 @@
 import { Schema, model, Document } from 'mongoose';
 
-export interface Publisher extends Document {
+export interface IPublisher extends Document {
   name: string;
 }
 
@@ -13,4 +13,4 @@ const PublisherSchema = new Schema(
   },
 );
 
-export default model<Publisher>('Book', PublisherSchema);
+export default model<IPublisher>('Publisher', PublisherSchema);

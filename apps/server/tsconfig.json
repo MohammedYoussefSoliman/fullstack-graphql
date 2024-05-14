@@ -3,7 +3,7 @@
     "require": ["tsconfig-paths/register"]
   },
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
     "esModuleInterop": true,
     "target": "ESNext",
     "lib": ["es6"],

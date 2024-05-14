@@ -1,10 +1,10 @@
 import { Schema, model, Document } from 'mongoose';
-import { Publisher } from './publisher';
-import { Author } from './author';
+import { IPublisher } from './publisher';
+import { IAuthor } from './author';
 
 export interface WorksAt extends Document {
-  author: Author;
-  publisher: Publisher;
+  author: IAuthor;
+  publisher: IPublisher;
 }
 
 const PublisherSchema = new Schema(
@@ -21,4 +21,4 @@ const PublisherSchema = new Schema(
   },
 );
 
-export default model<WorksAt>('Book', PublisherSchema);
+export default model<WorksAt>('WorksAt', PublisherSchema);

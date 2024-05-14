@@ -1,18 +1,33 @@
-import { Client, AddClient } from '@interfaces';
-import { clients } from '@constants/sampleData';
+import { Author, IAuthor, WorksAt } from '@models';
 
 export const authorsMutations = {
-  createAuthor: (_parent, { input }: { input: AddClient }): Client => {
-    const id = String(clients.length + 1);
-    const client = { id, ...input };
-    clients.push(client);
-    return client;
+  createAuthor: async (_parent, { input }: { input: IAuthor }) => {
+    const newAuthor = new Author(input);
+    return newAuthor.save();
   },
-  updateAuthor: (parent, { input }: { input: AddClient }): Client => {
+  updateAuthor: async (parent, { input }: { input: IAuthor }) => {
     const { id } = parent;
-    const foundClient = clients.find((client) => client.id === id);
-    const foundClientIndex = clients.findIndex((client) => client.id === id);
-    clients[foundClientIndex] = { ...foundClient, ...input };
-    return foundClient;
+
+    const updateAuthor = await Author.findByIdAndUpdate(
+      id,
+      {
+        $set: { ...input },
+      },
+      {
+        new: true,
+      },
+    );
+    return updateAuthor;
+  },
+  addAuthorToPublisher: async (parent, { publisher }) => {
+    const { id } = parent;
+    const author = await Author.findById(id);
+
+    if (author) {
+      const worksAt = new WorksAt({ publisher, author: id });
+      await worksAt.save();
+    }
+
+    return author;
   },
 };

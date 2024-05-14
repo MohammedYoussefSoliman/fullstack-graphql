@@ -23,6 +23,7 @@ type Mutation {
   # Authors
   createAuthor(author: AuthorCreateInput!): Author!
   updateAuthor(id: ID!, author: AuthorCreateInput!): Author!
+  addAuthorToPublisher(id: ID!, publisher: AuthorCreateInput!): Author!
 
   # Publishers
   createPublisher(publisher: PublisherCreateInput!): Publisher!
