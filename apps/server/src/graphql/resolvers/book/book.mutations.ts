@@ -1,18 +1,22 @@
-import { Project, AddProject } from '@interfaces';
-import { projects } from '@constants/sampleData';
+import { Book, IBook } from '@models';
 
 export const booksMutations = {
-  createBook: (_parent, { input }: { input: AddProject }): Project => {
-    const id = String(projects.length + 1);
-    const project = { id, ...input };
-    projects.push(project);
-    return project;
+  createBook: async (_parent, { input }: { input: IBook }) => {
+    const newBook = new Book(input);
+    return newBook.save();
   },
-  updateBook: (parent, { input }: { input: AddProject }): Project => {
+  updateBook: async (parent, { input }: { input: IBook }) => {
     const { id } = parent;
-    const foundClient = projects.find((client) => client.id === id);
-    const foundClientIndex = projects.findIndex((client) => client.id === id);
-    projects[foundClientIndex] = { ...foundClient, ...input };
-    return foundClient;
+
+    const updatedBook = await Book.findByIdAndUpdate(
+      id,
+      {
+        $set: { ...input },
+      },
+      {
+        new: true,
+      },
+    );
+    return updatedBook;
   },
 };

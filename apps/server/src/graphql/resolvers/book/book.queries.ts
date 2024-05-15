@@ -7,6 +7,7 @@ export const booksQueries = {
   },
   book: async (_, args: { id: string }) => {
     const book = await Book.findById(args.id);
+
     return book;
   },
 };
